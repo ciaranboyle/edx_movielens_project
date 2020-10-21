@@ -79,6 +79,8 @@ test_edx <- temp %>%
 removed <- anti_join(temp, test_edx)
 training_edx <- rbind(training_edx, removed)
 rm(partition_index, temp, removed)
+
+
 ##########################################################
 # Write RMSE function
 ##########################################################
@@ -103,6 +105,8 @@ predicted_ratings <- test_edx %>%
   mutate(pred = average_user_rating + b_m) %>%
   pull(pred)
 RMSE(predicted_ratings, test_edx$rating)
+
+
 ##########################################################
 # Compute the user bias and calculate the RMSE
 ##########################################################
@@ -140,6 +144,8 @@ predicted_ratings <- test_edx %>%
   mutate(pred = average_user_rating + b_m + b_u + b_y) %>%
   pull(pred)
 RMSE(predicted_ratings, test_edx$rating)
+
+
 ##########################################################
 # Compute the user-genre bias and calculate the RMSE
 ##########################################################
@@ -179,6 +185,8 @@ predicted_ratings <- test_edx %>%
   mutate(pred = average_user_rating + b_m + b_u + b_y + b_ug) %>%
   pull(pred)
 RMSE(predicted_ratings, test_edx$rating)
+
+
 ##########################################################
 
 
@@ -274,6 +282,7 @@ user_bias_reg <- training_edx %>%
 #check RMSE score for optimal lambda
 userbias_rmses[which.min(userbias_rmses)]
 
+
 ##########################################################
 # Regularize the movie-year bias and calculate the RMSE
 ##########################################################
@@ -324,6 +333,7 @@ year_bias_reg <- training_edx %>%
 
 #check RMSE score for optimal lambda
 movieyear_rmses[which.min(movieyear_rmses)]
+
 
 ##########################################################
 # Regularize the user-genre bias and calculate the RMSE
