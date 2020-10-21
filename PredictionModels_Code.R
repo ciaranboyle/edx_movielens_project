@@ -131,7 +131,7 @@ year_bias <- training_edx %>%
   summarize(b_y = mean(rating - average_user_rating - b_m - b_u))
 
 ##test RMSE
-predicted_ratings <- test_edx %>%
+predicted_ratings_movieyear <- test_edx %>%
   mutate(year_rated = year((as.POSIXct(test_edx$timestamp, origin="1970-01-01")))) %>% 
   left_join(average_movie_rating, by="movieId") %>%
   left_join(user_bias, by="userId") %>%
@@ -139,7 +139,7 @@ predicted_ratings <- test_edx %>%
   replace(is.na(.), 0) %>%
   mutate(pred = average_user_rating + b_m + b_u + b_y) %>%
   pull(pred)
-RMSE(predicted_ratings, test_edx$rating)
+RMSE(predicted_ratings_movieyear, test_edx$rating)
 ##########################################################
 # Compute the user-genre bias and calculate the RMSE
 ##########################################################
@@ -168,7 +168,7 @@ usergenre_bias <- training_edx %>%
   summarize(b_ug = mean(rating - average_user_rating - b_m - b_u - b_y))
 
 ##test RMSE
-predicted_ratings <- test_edx %>%
+predicted_ratings_usergenre <- test_edx %>%
   mutate(year_rated = year((as.POSIXct(test_edx$timestamp, origin="1970-01-01")))) %>% 
   left_join(average_movie_rating, by="movieId") %>%
   left_join(user_bias, by="userId") %>%
@@ -178,10 +178,11 @@ predicted_ratings <- test_edx %>%
   replace(is.na(.), 0) %>%
   mutate(pred = average_user_rating + b_m + b_u + b_y + b_ug) %>%
   pull(pred)
-RMSE(predicted_ratings, test_edx$rating)
+RMSE(predicted_ratings_usergenre, test_edx$rating)
 ##########################################################
 
 
+##########################################################
 ##########################################################
 # Regularize the movie bias and calculate the RMSE
 ##########################################################
@@ -401,7 +402,7 @@ usergenre_rmses[which.min(usergenre_rmses)]
 ##########################################################
 # Calculate RMSE for validation set
 ##########################################################
-predicted_ratings <- validation_edx %>%
+predicted_ratings_validation <- validation_edx %>%
   mutate(year_rated = year((as.POSIXct(validation_edx$timestamp, origin="1970-01-01")))) %>% 
   left_join(average_movie_rating_reg, by="movieId") %>%
   left_join(user_bias_reg, by="userId") %>%
@@ -411,6 +412,8 @@ predicted_ratings <- validation_edx %>%
   replace(is.na(.), 0) %>%
   mutate(pred = average_user_rating + b_m + b_u + b_y + b_ug) %>%
   pull(pred)
-RMSE(predicted_ratings, validation_edx$rating)
+RMSE(predicted_ratings_validation, validation_edx$rating)
+
+
 
 
