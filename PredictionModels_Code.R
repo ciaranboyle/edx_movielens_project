@@ -18,6 +18,7 @@ if (!require("dplyr")) {
   library(dplyr)
 }
 
+
 ##########################################################
 # Generate EDX Dataset
 ##########################################################
@@ -87,6 +88,7 @@ rm(partition_index, temp, removed)
 RMSE <- function(predicted_ratings, true_ratings){
   sqrt(mean((predicted_ratings - true_ratings)^2))
 }
+
 
 ##########################################################
 # Compute the user average and calculate the RMSE
@@ -187,8 +189,6 @@ predicted_ratings <- test_edx %>%
   mutate(pred = average_user_rating + b_m + b_u + b_y + b_ug) %>%
   pull(pred)
 RMSE(predicted_ratings, test_edx$rating)
-
-
 ##########################################################
 
 
