@@ -93,6 +93,8 @@ RMSE <- function(predicted_ratings, true_ratings){
 ##########################################################
 average_user_rating <- mean(training_edx$rating)
 RMSE(average_user_rating,test_edx$rating)
+
+
 ##########################################################
 # Compute the movie bias and calculate the RMSE
 ##########################################################
