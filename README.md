@@ -11,5 +11,5 @@ Contains the findings for the assignment presented in pdf format.
 ### [Report_Code.Rmd](Report_Code.Rmd)
 Contains the code used to generate the pdf report.
 
-### README.md
+### [README.md](README.md)
 Readme file for this folder.
