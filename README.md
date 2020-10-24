@@ -5,7 +5,7 @@ The files included in the folder are:
 ### PredictionModels_Code.R
 Contains the code used to download the dataset, as well as the prediction models that were developed during the course of this assignment.
 
-### Report.pdf[Report.pdf]
+### Report.pdf[../Report.pdf]
 Contains the findings for the assignment presented in pdf format.
 
 ### Report_Code.Rmd
