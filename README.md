@@ -1,5 +1,5 @@
 # edx_movielens_project
-This is the project folder for the MovieLens assignment. This assignment was completed in 2020 for the Data Science Professional Certificate provided by HarvardX. In this assignment, students were asked to generate a machine learning algorithm (utilizing linear regression) to predict user ratings for a given movie. The dataset examined in this assignment was the "MovieLens 10M Dataset", containing approximately ten million user ratings, given by 72000 unique users. 
+This is the project folder for the MovieLens assignment. This assignment was completed in 2020 for the Data Science course provided by HarvardX. In this assignment, students were asked to generate a machine learning algorithm (utilizing linear regression) to predict user ratings for a given movie. The dataset examined in this assignment was the "MovieLens 10M Dataset", containing approximately ten million user ratings, given by 72000 unique users. 
 
 The files included in the folder are:
 ### [PredictionModels_Code.R](PredictionModels_Code.R)
